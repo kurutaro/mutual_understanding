@@ -7,7 +7,7 @@ export default function TeamMember(props) {
   const [teamMembers, setTeamMembers] = useState([]);
 
   const fetchTeamMember = (id) => {
-    fetch(`http://localhost:3000/api/team/${id}/users`)
+    fetch(`/api/team/${id}/users`)
       .then((res) => res.json())
       .then((data) => {
         setTeamMembers(data);

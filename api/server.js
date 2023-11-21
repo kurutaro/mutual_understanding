@@ -2,15 +2,18 @@ const express = require('express');
 const database = require('./data/knex');
 const app = express();
 const PORT = process.env.PORT || 3000;
+const path = require('path');
 app.use(express.json());
+app.use(express.static(path.resolve(__dirname, '../vite-project', 'dist')));
 
-//React 側からこのエンドポイントにアクセスする
-// app.get('/', (req, res) => {
-//   res.set({ 'Access-Control-Allow-Origin': 'http://localhost:5173' });
-//   res.send('サーバーが実行中です！！！');
-// });
+// app.use(
+//   '/',
+//   express.static(
+//     '/Users/user/Documents/DEV/BTC_2023/ロール別トレーニング/solo_project/mutual_understanding/vite-project/dist'
+//   )
+// );
+
 app.get('/api/team', (req, res) => {
-  res.set({ 'Access-Control-Allow-Origin': 'http://localhost:5173' });
   database('team')
     .select()
     .then((result) => {
@@ -20,7 +23,6 @@ app.get('/api/team', (req, res) => {
 });
 
 app.get('/api/team/:id', (req, res) => {
-  res.set({ 'Access-Control-Allow-Origin': 'http://localhost:5173' });
   database('team')
     .select()
     .where('id', req.params.id)
@@ -31,7 +33,6 @@ app.get('/api/team/:id', (req, res) => {
 });
 
 app.get('/api/users', (req, res) => {
-  res.set({ 'Access-Control-Allow-Origin': 'http://localhost:5173' });
   database('users')
     .select()
     .then((result) => {
@@ -41,7 +42,6 @@ app.get('/api/users', (req, res) => {
 });
 
 app.get('/api/users/:id', (req, res) => {
-  res.set({ 'Access-Control-Allow-Origin': 'http://localhost:5173' });
   database('users')
     .select()
     .where('id', req.params.id)
@@ -51,8 +51,22 @@ app.get('/api/users/:id', (req, res) => {
     });
 });
 
+app.post('/api/users/new', (req, res) => {
+  const { first_name, last_name, email, password } = req.body;
+  database('users')
+    .insert({ first_name, last_name, email, password })
+    .returning('*')
+    .then((item) => {
+      res.json(item);
+    })
+    .catch((err) =>
+      res.status(400).json({
+        dbError: 'error',
+      })
+    );
+});
+
 app.get('/api/team/:id/users', (req, res) => {
-  res.set({ 'Access-Control-Allow-Origin': 'http://localhost:5173' });
   database('users')
     .select()
     .where('team_id', req.params.id)
@@ -63,7 +77,6 @@ app.get('/api/team/:id/users', (req, res) => {
 });
 
 app.get('/api/social_style/users/:id/', (req, res) => {
-  res.set({ 'Access-Control-Allow-Origin': 'http://localhost:5173' });
   database('social_style')
     .select()
     .where('user_id', req.params.id)

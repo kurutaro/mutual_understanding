@@ -11,7 +11,7 @@ export default function Team() {
   const [socialStyle, setSocialStyle] = useState([]);
 
   const fetchTeamMember = (id) => {
-    fetch(`http://localhost:3000/api/team/${id}/users`)
+    fetch(`/api/team/${id}/users`)
       .then((res) => res.json())
       .then((data) => {
         setTeamMembers(data);
@@ -19,7 +19,7 @@ export default function Team() {
   };
 
   const fetchOneTeam = (id) => {
-    fetch(`http://localhost:3000/api/team/${id}`)
+    fetch(`/api/team/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setSelectTeam(data);
@@ -29,7 +29,7 @@ export default function Team() {
   const makeMultiPositioningMapData = (arrOfMembers) => {
     const urls = [];
     for (const obj of arrOfMembers) {
-      urls.push('http://localhost:3000/api/social_style/users/' + obj.id);
+      urls.push('/api/social_style/users/' + obj.id);
     }
 
     const request = urls.map((url) => fetch(url));

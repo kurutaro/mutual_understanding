@@ -5,6 +5,7 @@ import Home from './Home';
 import Team from './Team';
 import UserList from './UserList';
 import UserDetail from './UserDetail';
+import CreateUser from './CreateUser';
 
 function App() {
   // const [currentView, setCurrentView] = useState('');
@@ -13,7 +14,7 @@ function App() {
   const [detailUser, setDetailUser] = useState([]);
 
   const fetchTeam = () => {
-    fetch('http://localhost:3000/api/team')
+    fetch('/api/team')
       .then((res) => res.json())
       .then((dataOfTeam) => {
         setTeam(dataOfTeam);
@@ -21,7 +22,7 @@ function App() {
   };
 
   const fetchUser = () => {
-    fetch(`http://localhost:3000/api/users`)
+    fetch(`/api/users`)
       .then((res) => res.json())
       .then((data) => {
         setUsers(data);
@@ -29,7 +30,7 @@ function App() {
   };
 
   const fetchDetailUser = (id) => {
-    fetch(`http://localhost:3000/api/users/${id}`)
+    fetch(`/api/users/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setDetailUser(data);
@@ -63,6 +64,7 @@ function App() {
               ></UserDetail>
             }
           />
+          <Route path="/users/new" element={<CreateUser />} />
 
           {/* <Route path="*" element={<Notfound />} /> */}
         </Routes>

@@ -15,7 +15,6 @@ export default function Home(props) {
           <tr>
             <th>チーム名</th>
             <th>メンバー</th>
-            <th>bbb</th>
           </tr>
         </thead>
         <tbody>
@@ -27,10 +26,6 @@ export default function Home(props) {
                 </td>
                 <td>
                   <TeamMember team_id={obj.id}></TeamMember>
-                </td>
-                <td>
-                  <button>編集</button>
-                  <button>削除</button>
                 </td>
               </tr>
             );

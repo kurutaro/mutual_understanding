@@ -17,7 +17,7 @@ export default function UserDetail(props) {
   });
 
   const makePositioningMapData = (id) => {
-    fetch(`http://localhost:3000/api/social_style/users/${id}`)
+    fetch(`/api/social_style/users/${id}`)
       .then((res) => res.json())
       .then((data) => {
         let countA = 0;
@@ -78,7 +78,9 @@ export default function UserDetail(props) {
   return (
     <>
       <div className="composition">
-        <h2>{detailUser[0]?.first_name + ' ' + detailUser[0]?.last_name}</h2>
+        <h2>
+          {detailUser[0]?.first_name + ' ' + detailUser[0]?.last_name + ' さん'}
+        </h2>
       </div>
       <div className="img-field">
         <img
