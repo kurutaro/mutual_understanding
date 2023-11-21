@@ -7,8 +7,8 @@ module.exports = {
     client: 'pg',
     connection: {
       // ここにローカルのデータベースの設定
-      user: process.env.POSTGRES_USER || 'postgres',
-      database: process.env.POSTGRES_DB || 'ccpixels',
+      user: process.env.POSTGRES_USER || 'user',
+      database: process.env.POSTGRES_DB || 'mutual_understanding',
     },
     migrations: {
       directory: './data/migrations',

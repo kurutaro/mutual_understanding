@@ -1,0 +1,36 @@
+.App {
+  width: 60%;
+  min-height: 1000px;
+  background-color: aliceblue;
+  margin: 70px auto;
+  padding: 10px 40px 100px 40px;
+  opacity: 0.88;
+}
+
+h1 {
+  font-size: 35px;
+  color: aliceblue;
+  background-color: darkcyan;
+  text-align: center;
+  padding: 15px;
+}
+
+h2 {
+  font-size: 35px;
+  margin: 0 0 0 40px;
+}
+
+h2:first-letter {
+  font-size: 2em;
+  color: #3dd39c;
+}
+
+h3 {
+  font-size: 25px;
+  margin: 0 0 0 40px;
+}
+
+p {
+  font-size: 20px;
+  margin: 0 0 0 40px;
+}
