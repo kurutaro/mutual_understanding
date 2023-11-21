@@ -4,7 +4,7 @@
  */
 exports.up = function (knex) {
   return knex.schema.alterTable('users', function (table) {
-    table.integer('team_id').references('team.id').notNullable();
+    table.integer('team_id').references('team.id');
   });
 };
 

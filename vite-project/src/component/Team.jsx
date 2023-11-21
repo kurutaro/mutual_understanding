@@ -67,17 +67,21 @@ export default function Team() {
             data[0]?.question_feeling_face,
           ];
           for (const e of arrAB) {
-            if (e == 1) {
+            if (e === 1) {
               countA++;
-            } else {
+            } else if (e === 0) {
               countB++;
+            } else {
+              return {};
             }
           }
           for (const e of arrCD) {
-            if (e == 1) {
+            if (e === 1) {
               countC++;
-            } else {
+            } else if (e === 0) {
               countD++;
+            } else {
+              return {};
             }
           }
           return { x: countA - countB, y: countC - countD };
@@ -98,18 +102,27 @@ export default function Team() {
 
   return (
     <>
+      <div style={{ textAlign: 'right' }}>
+        <Link to={`/`} className="Link">
+          ホームに戻る
+        </Link>
+      </div>
       <div>
         <div className="composition">
           <h2>{selectTeam[0]?.name}</h2>
 
           <h3>メンバー</h3>
+
           {teamMembers.map((e) => (
-            <Link to={`/users/${e.id}`}>
-              <p key={e.id}>
+            <Link key={e.id} to={`/users/${e.id}`}>
+              <p>
                 {e.first_name} {e.last_name}
               </p>
             </Link>
           ))}
+          <Link to={`/users/new`}>
+            <p className="addLink">+メンバーを追加する</p>
+          </Link>
         </div>
         <div className="img-field">
           <img
@@ -122,9 +135,6 @@ export default function Team() {
           pushData={socialStyle}
           detailUser={teamMembers}
         ></PositioningMap>
-      </div>
-      <div>
-        <Link to={`/`}>ホームに戻る</Link>
       </div>
     </>
   );

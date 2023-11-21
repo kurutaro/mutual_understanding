@@ -6,10 +6,25 @@ exports.seed = async function (knex) {
   // Deletes ALL existing entries
   await knex('team').del();
   await knex('team').insert([
-    { id: 1, name: 'ProjectName1' },
-    { id: 2, name: 'ProjectName2' },
-    { id: 3, name: 'ProjectName3' },
-    { id: 4, name: 'ProjectName4' },
-    { id: 5, name: 'ProjectName5' },
+    { name: 'Acme Project' },
+    { name: 'Infinity Solutions' },
+    { name: 'Pioneer Ventures' },
+    { name: 'Future Horizons' },
+    { name: 'Vanguard Innovations' },
+    { name: 'Summit Enterprises' },
+    { name: 'Elevate Technologies' },
+    { name: 'Apex Creations' },
+    { name: 'Stratus Designs' },
+    { name: 'Nimbus Solutions' },
+    { name: 'Zenith Dynamics' },
+    { name: 'Horizon Solutions' },
+    { name: 'Evolve Enterprises' },
+    { name: 'Synergy Systems' },
+    { name: 'Global Innovations' },
+    { name: 'Frontier Technologies' },
+    { name: 'Prime Developments' },
+    { name: 'Skyline Solutions' },
+    { name: 'Cascade Industries' },
+    { name: 'Visionary Ventures' },
   ]);
 };

@@ -51,20 +51,23 @@ export default function UserDetail(props) {
         ];
 
         for (const e of arrAB) {
-          if (e == 1) {
+          if (e === 1) {
             countA++;
-          } else {
+          } else if (e === 0) {
             countB++;
+          } else {
+            return {};
           }
         }
         for (const e of arrCD) {
-          if (e == 1) {
+          if (e === 1) {
             countC++;
-          } else {
+          } else if (e === 0) {
             countD++;
+          } else {
+            return {};
           }
         }
-
         const pushData = [{ x: countA - countB, y: countC - countD }];
         setSocialStyle(pushData);
       });
@@ -77,10 +80,23 @@ export default function UserDetail(props) {
 
   return (
     <>
+      <div style={{ textAlign: 'right' }}>
+        <Link to={`/`} className="Link">
+          ホームに戻る
+        </Link>
+      </div>
+      <div style={{ textAlign: 'right' }}>
+        <Link to={`/users`} className="Link">
+          リストに戻る
+        </Link>
+      </div>
       <div className="composition">
         <h2>
           {detailUser[0]?.first_name + ' ' + detailUser[0]?.last_name + ' さん'}
         </h2>
+        <Link to={`/users/${userId}/type/new`}>
+          <p className="addLink">+タイプ診断を行う</p>
+        </Link>
       </div>
       <div className="img-field">
         <img
@@ -93,11 +109,6 @@ export default function UserDetail(props) {
         pushData={socialStyle}
         detailUser={detailUser}
       ></PositioningMap>
-      <div>
-        <Link to={`/`}>ホームに戻る</Link>
-        <br />
-        <Link to={`/users`}>ユーザーリストに戻る</Link>
-      </div>
     </>
   );
 }

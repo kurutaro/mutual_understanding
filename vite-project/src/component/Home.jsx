@@ -10,9 +10,16 @@ export default function Home(props) {
 
   return (
     <>
+      <div style={{ textAlign: 'right' }}>
+        <Link to={`/users`} className="Link">
+          ユーザーリストへ
+        </Link>
+      </div>
+
       <table>
         <thead>
           <tr>
+            <th>チームID</th>
             <th>チーム名</th>
             <th>メンバー</th>
           </tr>
@@ -21,6 +28,7 @@ export default function Home(props) {
           {team.map((obj, index) => {
             return (
               <tr key={index.toString()}>
+                <td>{obj.id}</td>
                 <td>
                   <Link to={`/team/${obj.id}`}>{obj.name}</Link>
                 </td>
@@ -32,7 +40,6 @@ export default function Home(props) {
           })}
         </tbody>
       </table>
-      <Link to={`/users`}>ユーザーリストへ</Link>
     </>
   );
 }

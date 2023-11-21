@@ -5,7 +5,7 @@
 exports.up = function (knex) {
   return knex.schema.createTable('social_style', function (table) {
     table.increments('id').primary();
-    table.integer('user_id').references('users.id').notNullable();
+    table.integer('user_id').references('users.id');
     table.integer('question_pace').notNullable();
     table.integer('question_between').notNullable();
     table.integer('question_ending').notNullable();

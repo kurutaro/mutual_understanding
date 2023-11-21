@@ -11,6 +11,11 @@ export default function UserList(props) {
 
   return (
     <>
+      <div style={{ textAlign: 'right' }}>
+        <Link to={`/`} className="Link">
+          ホームに戻る
+        </Link>
+      </div>
       <table>
         <thead>
           <tr>
@@ -33,9 +38,6 @@ export default function UserList(props) {
           })}
         </tbody>
       </table>
-      <div>
-        <Link to={`/`}>ホームに戻る</Link>
-      </div>
     </>
   );
 }

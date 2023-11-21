@@ -6,6 +6,7 @@ import Team from './Team';
 import UserList from './UserList';
 import UserDetail from './UserDetail';
 import CreateUser from './CreateUser';
+import CreateType from './CreateType';
 
 function App() {
   // const [currentView, setCurrentView] = useState('');
@@ -64,7 +65,19 @@ function App() {
               ></UserDetail>
             }
           />
-          <Route path="/users/new" element={<CreateUser />} />
+          <Route
+            path="/users/new"
+            element={<CreateUser fetchTeam={fetchTeam} team={team} />}
+          />
+          <Route
+            path="/users/:userId/type/new"
+            element={
+              <CreateType
+                fetchDetailUser={fetchDetailUser}
+                detailUser={detailUser}
+              />
+            }
+          />
 
           {/* <Route path="*" element={<Notfound />} /> */}
         </Routes>

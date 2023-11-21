@@ -34,3 +34,40 @@ p {
   font-size: 20px;
   margin: 0 0 0 40px;
 }
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+a:hover {
+  color: #24ea91;
+}
+
+.addLink {
+  font-size: 14px !important;
+  width: 135px;
+  transition: 0.3s; /* 変化時間 0.3秒 */
+  margin-top: 5px;
+  padding: 5px 5px 5px 10px; /* 内側の余白設定 */
+  border-radius: 12px; /* 要素の角を丸くする */
+  background-color: #2ecadf; /* 背景色指定 */
+  text-decoration: none; /* aタグの下線を非表示に */
+  color: #fff; /* 文字色 */
+  font-size: 1.2rem; /* フォントサイズ */
+}
+
+.Link {
+  font-size: 20px !important;
+  width: 120px;
+  transition: 0.3s; /* 変化時間 0.3秒 */
+  padding: 5px 5px 5px 10px; /* 内側の余白設定 */
+  border-radius: 12px; /* 要素の角を丸くする */
+  background-color: #19b57a; /* 背景色指定 */
+  text-decoration: none; /* aタグの下線を非表示に */
+  color: #fff; /* 文字色 */
+}
+
+.Link:hover {
+  color: #f9fffc !important;
+}
