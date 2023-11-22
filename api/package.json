@@ -6,7 +6,8 @@
   "scripts": {
     "build": "npm install",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js",
+    "start": "node ./src/server.js",
+    "server": "nodemon server.js",
     "migrate": "knex migrate:latest",
     "seed": "knex seed:run",
     "makeMigration": "knex migrate:make",
